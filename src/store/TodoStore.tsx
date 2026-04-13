@@ -35,3 +35,13 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
         </TodoContext.Provider>
     );
 };
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useTodos = () => {
+  const context = useContext(TodoContext);
+  if (!context) {
+    throw new Error("useTodos must be used within a TodoProvider");
+  }
+  return context;
+};
+
